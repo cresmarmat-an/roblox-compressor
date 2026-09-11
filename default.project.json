@@ -1,0 +1,7 @@
+{
+  "name": "Compressor",
+  "globIgnorePaths": ["**/wally.toml"],
+  "tree": {
+    "$path": "src"
+  }
+}

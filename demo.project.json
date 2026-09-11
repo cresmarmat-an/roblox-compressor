@@ -1,0 +1,22 @@
+{
+  "name": "CompressorDemo",
+  "servePort": 34873,
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$path": "demo/ReplicatedStorage",
+      "Compressor": {
+        "$path": "src"
+      }
+    },
+    "ServerScriptService": {
+      "$path": "demo/ServerScriptService"
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$path": "demo/StarterPlayerScripts"
+      }
+    }
+  }
+}

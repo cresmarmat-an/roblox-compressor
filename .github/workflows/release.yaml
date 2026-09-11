@@ -1,0 +1,36 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rojo
+        run: cargo install rojo --version 7.7.0 --locked
+
+      - name: Build model
+        run: rojo build default.project.json --output Compressor.rbxm
+
+      - name: Read release notes from CHANGELOG
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG#v}"
+          awk -v ver="[$VERSION]" '
+            /^## / { if (found) exit; found = (index($0, ver) > 0); next }
+            found
+          ' CHANGELOG.md > RELEASE_NOTES.md
+          cat RELEASE_NOTES.md
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Compressor.rbxm
+          body_path: RELEASE_NOTES.md

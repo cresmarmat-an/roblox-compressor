@@ -1,0 +1,7 @@
+std = "roblox"
+
+# Uniform handler signatures intentionally leave some parameters unused,
+# and bitmask builders / constructor shorthands stay single-line.
+[lints]
+unused_variable = "allow"
+multiple_statements = "allow"

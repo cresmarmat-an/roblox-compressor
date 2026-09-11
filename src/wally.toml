@@ -1,0 +1,9 @@
+[package]
+name = "cresmarmat-an/compressor"
+version = "1.0.0"
+description = "Binary serialization for Roblox Luau: buffers, schemas, reference tracking"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+authors = ["Cresmar Mat-an"]
+
+[dependencies]
